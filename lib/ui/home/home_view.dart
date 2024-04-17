@@ -13,18 +13,24 @@ class HomeView extends HookConsumerWidget {
     StateController<int> counterNotifier = ref.watch(counterProvider.notifier);
     final count = ref.watch(counterProvider);
 
-    return Center(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text('$count'),
-          TextButton(
-            onPressed: () { 
-              counterNotifier.state++; 
-            },
-            child: const Text('Button')),
-        ]
-      )
-    );
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(icon: const Icon(Icons.menu), onPressed: () {},),
+        title: const Text('ホーム'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text('$count'),
+            TextButton(
+              onPressed: () { 
+                counterNotifier.state++; 
+              },
+              child: const Text('Button')),
+          ]
+        )
+      ),
+    );   
   }
 }
