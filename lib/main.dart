@@ -7,13 +7,13 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 final indexProvider = StateProvider((ref) => 0,);
 
 void main() {
-  runApp(const ProviderScope(child: MainApp(),));
+  runApp(ProviderScope(child: MainApp(),));
 }
 
 class MainApp extends HookConsumerWidget {
-  const MainApp({super.key});
+   MainApp({super.key});
   
-  static const _screen = [
+  final  _screen = [
     HomeView(),
     AnalyticsView(),
     SettingsView()
