@@ -1,0 +1,10 @@
+{
+  "@@locale": "ja",
+  
+  "home": "ホーム",
+  "analytics": "統計",
+  "settings": "設定",
+
+  "drawer_about_app": "アプリについて",
+  "drawer_qa": "QA"
+}

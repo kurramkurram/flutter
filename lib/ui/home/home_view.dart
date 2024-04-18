@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_app/lang/l10n.dart';
 import 'package:flutter_app/ui/drawer/drawer_view.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -15,6 +16,7 @@ class HomeView extends HookConsumerWidget {
     
     StateController<int> counterNotifier = ref.watch(counterProvider.notifier);
     final count = ref.watch(counterProvider);
+    final l10n = L10n.of(context)!;
 
     return Scaffold(
         key: _scaffoldKey,
@@ -22,7 +24,7 @@ class HomeView extends HookConsumerWidget {
         leading: IconButton(icon: const Icon(Icons.menu), onPressed: () {
           _scaffoldKey.currentState?.openDrawer();
         },),
-        title: const Text('ホーム'),
+        title: Text(l10n.home),
       ),
       drawer: const DrawerView(),
       body: Center(
@@ -34,7 +36,8 @@ class HomeView extends HookConsumerWidget {
               onPressed: () { 
                 counterNotifier.state++; 
               },
-              child: const Text('Button')),
+              child: Text(l10n.home)
+            )
           ]
         )
       ),
