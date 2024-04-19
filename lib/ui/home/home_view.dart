@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/lang/l10n.dart';
 import 'package:flutter_app/ui/drawer/drawer_view.dart';
+import 'package:flutter_app/ui/license/license_view.dart';
+import 'package:flutter_app/ui/license/license_view_model.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final counterProvider = StateProvider((ref) => 0,);
@@ -21,12 +23,14 @@ class HomeView extends HookConsumerWidget {
     return Scaffold(
         key: _scaffoldKey,
       appBar: AppBar(
-        leading: IconButton(icon: const Icon(Icons.menu), onPressed: () {
-          _scaffoldKey.currentState?.openDrawer();
+        leading: IconButton(
+          icon: const Icon(Icons.menu), 
+          onPressed: () {
+            _scaffoldKey.currentState?.openDrawer();
         },),
         title: Text(l10n.home),
       ),
-      drawer: const DrawerView(),
+      drawer: DrawerView(),
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -34,10 +38,10 @@ class HomeView extends HookConsumerWidget {
             Text('$count'),
             TextButton(
               onPressed: () { 
-                counterNotifier.state++; 
+                counterNotifier.state++;
               },
               child: Text(l10n.home)
-            )
+            ),
           ]
         )
       ),

@@ -120,6 +120,18 @@ abstract class L10n {
   /// In ja, this message translates to:
   /// **'QA'**
   String get drawer_qa;
+
+  /// No description provided for @drawer_license.
+  ///
+  /// In ja, this message translates to:
+  /// **'ライセンス'**
+  String get drawer_license;
+
+  /// No description provided for @license_error.
+  ///
+  /// In ja, this message translates to:
+  /// **'ライセンス情報を取得できませんでした'**
+  String get license_error;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

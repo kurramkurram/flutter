@@ -6,5 +6,8 @@
   "settings": "設定",
 
   "drawer_about_app": "アプリについて",
-  "drawer_qa": "QA"
+  "drawer_qa": "QA",
+  "drawer_license": "ライセンス",
+
+  "license_error": "ライセンス情報を取得できませんでした"
 }
