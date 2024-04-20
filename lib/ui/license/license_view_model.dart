@@ -2,10 +2,12 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_app/ui/license/license_package.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-final licenseViewModelProvider = StateNotifierProvider.autoDispose<LicenseViewModel, AsyncValue<List<LicensePackage>>>((ref) => LicenseViewModel());
+final licenseViewModelProvider = StateNotifierProvider.autoDispose<
+    LicenseViewModel,
+    AsyncValue<List<LicensePackage>>>((ref) => LicenseViewModel());
 
 class LicenseViewModel extends StateNotifier<AsyncValue<List<LicensePackage>>> {
-  LicenseViewModel(): super(const AsyncValue.loading()){
+  LicenseViewModel() : super(const AsyncValue.loading()) {
     _fetchLicenses();
   }
 
@@ -20,10 +22,8 @@ class LicenseViewModel extends StateNotifier<AsyncValue<List<LicensePackage>>> {
           for (var paragraph in licenses.paragraphs) {
             paragraphs.add(paragraph.text);
           }
-          var ossPackage = LicensePackage(
-            package: package,
-            paragraph: paragraphs
-          );
+          var ossPackage =
+              LicensePackage(package: package, paragraph: paragraphs);
           license.add(ossPackage);
         }
       }

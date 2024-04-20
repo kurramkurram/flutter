@@ -127,6 +127,12 @@ abstract class L10n {
   /// **'ライセンス'**
   String get drawer_license;
 
+  /// No description provided for @drawer_policy.
+  ///
+  /// In ja, this message translates to:
+  /// **'プライバシーポリシー'**
+  String get drawer_policy;
+
   /// No description provided for @license_error.
   ///
   /// In ja, this message translates to:

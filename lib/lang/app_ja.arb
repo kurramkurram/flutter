@@ -8,6 +8,7 @@
   "drawer_about_app": "アプリについて",
   "drawer_qa": "QA",
   "drawer_license": "ライセンス",
+  "drawer_policy": "プライバシーポリシー", 
 
   "license_error": "ライセンス情報を取得できませんでした"
 }
