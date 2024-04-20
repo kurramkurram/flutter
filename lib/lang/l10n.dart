@@ -130,7 +130,7 @@ abstract class L10n {
   /// No description provided for @drawer_policy.
   ///
   /// In ja, this message translates to:
-  /// **'プライバシーポリシー'**
+  /// **'利用規約'**
   String get drawer_policy;
 
   /// No description provided for @license_error.

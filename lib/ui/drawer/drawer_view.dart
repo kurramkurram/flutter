@@ -27,7 +27,7 @@ class DrawerView extends HookConsumerWidget {
             onTap: () {
               Navigator.pop(context);
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const TermsView()));
+                  MaterialPageRoute(builder: (context) => const LicenseView()));
             },
           ),
           ListTile(

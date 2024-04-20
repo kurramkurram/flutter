@@ -23,7 +23,7 @@ class L10nJa extends L10n {
   String get drawer_license => 'ライセンス';
 
   @override
-  String get drawer_policy => 'プライバシーポリシー';
+  String get drawer_policy => '利用規約';
 
   @override
   String get license_error => 'ライセンス情報を取得できませんでした';
