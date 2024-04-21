@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/data/repository/permission_repository.dart';
 import 'package:flutter_app/lang/l10n.dart';
 import 'package:flutter_app/ui/drawer/drawer_view.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final counterProvider = StateProvider(
@@ -15,8 +17,18 @@ class HomeView extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     StateController<int> counterNotifier = ref.watch(counterProvider.notifier);
+    final permissionRepository = ref.read(permissionRepositoryProvider);
+
     final count = ref.watch(counterProvider);
     final l10n = L10n.of(context)!;
+
+    useEffect(() {
+      WidgetsBinding.instance.addPostFrameCallback((_) async {
+        await permissionRepository.requestAll();
+      });
+
+      return null;
+    }, []);
 
     return Scaffold(
       key: _scaffoldKey,
