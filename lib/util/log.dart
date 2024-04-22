@@ -1,15 +1,11 @@
 import 'package:flutter/foundation.dart';
 
 class Log {
-  Future<void> d(String message) async {
-    if (kDebugMode) {
-      debugPrint(message);
-    }
+  d(String message) {
+    debugPrint(message);
   }
 
-  Future<void> e(Error message) async {
-    if (kDebugMode) {
-      debugPrint(message.stackTrace.toString());
-    }
+  e(Error message) {
+    debugPrint(message.stackTrace.toString());
   }
 }
