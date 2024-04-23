@@ -1,11 +1,11 @@
 import 'package:flutter/foundation.dart';
 
 class Log {
-  d(String message) {
+  static d(String message) {
     debugPrint(message);
   }
 
-  e(Error message) {
+  static e(Error message) {
     debugPrint(message.stackTrace.toString());
   }
 }
