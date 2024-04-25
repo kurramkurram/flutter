@@ -16,8 +16,10 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$LicensePackage {
-// パッケージ
-  String get package => throw _privateConstructorUsedError; // 本文
+  /// パッケージ
+  String get package => throw _privateConstructorUsedError;
+
+  /// 本文
   List<String> get paragraph => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -108,13 +110,15 @@ class _$LicensePackageImpl implements _LicensePackage {
       {this.package = '', final List<String> paragraph = const []})
       : _paragraph = paragraph;
 
-// パッケージ
+  /// パッケージ
   @override
   @JsonKey()
   final String package;
-// 本文
+
+  /// 本文
   final List<String> _paragraph;
-// 本文
+
+  /// 本文
   @override
   @JsonKey()
   List<String> get paragraph {
@@ -155,9 +159,13 @@ abstract class _LicensePackage implements LicensePackage {
       {final String package,
       final List<String> paragraph}) = _$LicensePackageImpl;
 
-  @override // パッケージ
+  @override
+
+  /// パッケージ
   String get package;
-  @override // 本文
+  @override
+
+  /// 本文
   List<String> get paragraph;
   @override
   @JsonKey(ignore: true)
