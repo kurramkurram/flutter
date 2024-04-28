@@ -10,20 +10,20 @@ class AnalyticsView extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = L10n.of(context)!;
-  
+
     return Scaffold(
-       key: _scaffoldKey,
-       appBar: AppBar(
-        leading: IconButton(icon: const Icon(Icons.menu), onPressed: () { 
-          _scaffoldKey.currentState?.openDrawer();
-        },),
+      key: _scaffoldKey,
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.menu),
+          onPressed: () {
+            _scaffoldKey.currentState?.openDrawer();
+          },
+        ),
         title: Text(l10n.analytics),
-        
       ),
       drawer: const DrawerView(),
-      body: Center(
-        child: Text(l10n.analytics)
-      ),
+      body: Center(child: Text(l10n.analytics)),
     );
   }
 }
