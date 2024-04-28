@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/lang/l10n.dart';
+import 'package:flutter_app/ui/about/about_app_view.dart';
 import 'package:flutter_app/ui/license/license_view.dart';
 import 'package:flutter_app/ui/terms/terms_view.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -16,7 +17,11 @@ class DrawerView extends HookConsumerWidget {
         children: [
           ListTile(
             title: Text(l10n.drawer_about_app),
-            onTap: () => Navigator.pop(context),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const AboutAppView()));
+            },
           ),
           ListTile(
             title: Text(l10n.drawer_qa),

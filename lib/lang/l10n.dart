@@ -109,6 +109,12 @@ abstract class L10n {
   /// **'設定'**
   String get settings;
 
+  /// No description provided for @person.
+  ///
+  /// In ja, this message translates to:
+  /// **'ユーザ'**
+  String get person;
+
   /// No description provided for @drawer_about_app.
   ///
   /// In ja, this message translates to:
@@ -132,6 +138,18 @@ abstract class L10n {
   /// In ja, this message translates to:
   /// **'利用規約'**
   String get drawer_policy;
+
+  /// No description provided for @about_app_app_name.
+  ///
+  /// In ja, this message translates to:
+  /// **'アプリ名'**
+  String get about_app_app_name;
+
+  /// No description provided for @about_app_version.
+  ///
+  /// In ja, this message translates to:
+  /// **'バージョン名'**
+  String get about_app_version;
 
   /// No description provided for @license_error.
   ///

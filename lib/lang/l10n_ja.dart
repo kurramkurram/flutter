@@ -14,6 +14,9 @@ class L10nJa extends L10n {
   String get settings => '設定';
 
   @override
+  String get person => 'ユーザ';
+
+  @override
   String get drawer_about_app => 'アプリについて';
 
   @override
@@ -24,6 +27,12 @@ class L10nJa extends L10n {
 
   @override
   String get drawer_policy => '利用規約';
+
+  @override
+  String get about_app_app_name => 'アプリ名';
+
+  @override
+  String get about_app_version => 'バージョン名';
 
   @override
   String get license_error => 'ライセンス情報を取得できませんでした';
