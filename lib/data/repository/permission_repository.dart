@@ -49,4 +49,9 @@ class PermissionRepository {
       }
     }
   }
+
+  /// 権限の状態を取得
+  Future<PermissionStatus> getStatus(Permissions permission) {
+    return _permissionDataSource.getStatus(permission);
+  }
 }
