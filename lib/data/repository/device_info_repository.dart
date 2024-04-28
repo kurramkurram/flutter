@@ -13,15 +13,15 @@ class DeviceInfoRepository {
 
   final Ref _ref;
 
-  late final deviceInfoDatasource = _ref.read(deviceInfoDatasourceProvider);
+  late final _deviceInfoDatasource = _ref.read(deviceInfoDatasourceProvider);
 
   Future<int> fetchAndroidOsVersion() =>
-      deviceInfoDatasource.fetchAndroidOsVersion();
+      _deviceInfoDatasource.fetchAndroidOsVersion();
 
   Future<SystemVersion> fetchIosOsVersion() =>
-      deviceInfoDatasource.fetchIosOsVersion();
+      _deviceInfoDatasource.fetchIosOsVersion();
 
-  bool isAndroid() => deviceInfoDatasource.isAndroid();
+  bool isAndroid() => _deviceInfoDatasource.isAndroid();
 
-  bool isIos() => deviceInfoDatasource.isIos();
+  bool isIos() => _deviceInfoDatasource.isIos();
 }
