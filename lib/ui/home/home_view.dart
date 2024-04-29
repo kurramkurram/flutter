@@ -43,14 +43,19 @@ class HomeView extends HookConsumerWidget {
       ),
       drawer: const DrawerView(),
       body: Center(
-          child: Column(mainAxisSize: MainAxisSize.min, children: [
-        Text('$count'),
-        TextButton(
-            onPressed: () {
-              counterNotifier.state++;
-            },
-            child: Text(l10n.home)),
-      ])),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text('$count'),
+            TextButton(
+              onPressed: () {
+                counterNotifier.state++;
+              },
+              child: Text(l10n.home),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
