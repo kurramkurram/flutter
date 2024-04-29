@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/lang/l10n.dart';
 import 'package:flutter_app/ui/analytics/analytics_view.dart';
 import 'package:flutter_app/ui/home/home_view.dart';
+import 'package:flutter_app/ui/user/user_view.dart';
 import 'package:flutter_app/ui/settings/settings_view.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -18,13 +19,12 @@ void main() {
 class MainApp extends HookConsumerWidget {
   MainApp({super.key});
 
-  final _screen = [HomeView(), AnalyticsView(), SettingsView()];
+  final _screen = [HomeView(), AnalyticsView(), UserView(), SettingsView()];
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     StateController<int> indexNotifier = ref.watch(indexProvider.notifier);
     final index = ref.watch(indexProvider);
-    // final l10n = L10n.of(context)!;
 
     return MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -36,6 +36,7 @@ class MainApp extends HookConsumerWidget {
             items: const [
               BottomNavigationBarItem(icon: Icon(Icons.home), label: 'ホーム'),
               BottomNavigationBarItem(icon: Icon(Icons.analytics), label: '統計'),
+              BottomNavigationBarItem(icon: Icon(Icons.person), label: 'ユーザ'),
               BottomNavigationBarItem(icon: Icon(Icons.settings), label: '設定')
             ],
             onTap: (value) => indexNotifier.state = value,
