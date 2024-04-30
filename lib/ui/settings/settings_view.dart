@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/gen/assets.gen.dart';
 import 'package:flutter_app/lang/l10n.dart';
 import 'package:flutter_app/launch/launch_app.dart';
+import 'package:flutter_app/ui/component/bottom_sheet/custom_bottom_sheet.dart';
 import 'package:flutter_app/ui/component/button/base_button.dart';
 import 'package:flutter_app/ui/component/dialog/custom_alert_dialog.dart';
 import 'package:flutter_app/ui/component/toast/toast.dart';
@@ -73,6 +74,16 @@ class SettingsView extends HookConsumerWidget {
               text: const Text('ブラウザ起動'),
               onPressed: () {
                 context.launchApp('https://kurramkurram.github.io/');
+              },
+            ),
+            const SizedBox(height: 20),
+            BaseButton(
+              text: const Text('ボトムシート'),
+              onPressed: () {
+                CustomBottomSheet().show(
+                  context: context,
+                  body: const Column(children: [Text('AAAAA')]),
+                );
               },
             ),
           ],
