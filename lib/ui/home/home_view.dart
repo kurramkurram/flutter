@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/data/repository/permission_repository.dart';
 import 'package:flutter_app/lang/l10n.dart';
-import 'package:flutter_app/ui/component/dialog/custom_alert_dialog.dart';
-import 'package:flutter_app/ui/component/toast/toast.dart';
 import 'package:flutter_app/ui/drawer/drawer_view.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -52,23 +50,6 @@ class HomeView extends HookConsumerWidget {
             TextButton(
               onPressed: () {
                 counterNotifier.state++;
-                showDialog(
-                  context: context,
-                  builder: (_) {
-                    return const CustomAlertDialog(
-                      title: 'タイトル',
-                      description: 'ダイアログのサンプル',
-                      positive: 'ハイ',
-                      negative: 'いいえ',
-                    );
-                  },
-                ).then((value) {
-                  if (value == 0) {
-                    ToastUtil.show('はいが押されました');
-                  } else if (value == 1) {
-                    ToastUtil.show('いいえが押されました');
-                  }
-                });
               },
               child: Text(l10n.home),
             ),

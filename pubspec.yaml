@@ -51,6 +51,9 @@ dependencies:
   # toast
   fluttertoast: ^8.2.5
 
+  # start app
+  url_launcher: ^6.2.6
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
