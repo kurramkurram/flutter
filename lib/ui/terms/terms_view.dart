@@ -13,6 +13,7 @@ class TermsView extends HookConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.blue.shade100,
         automaticallyImplyLeading: false,
         actions: [
           IconButton(

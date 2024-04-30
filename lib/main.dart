@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_app/lang/l10n.dart';
+import 'package:flutter_app/theme/theme.dart';
 import 'package:flutter_app/ui/analytics/analytics_view.dart';
 import 'package:flutter_app/ui/home/home_view.dart';
 import 'package:flutter_app/ui/user/user_view.dart';
@@ -30,6 +32,8 @@ class MainApp extends HookConsumerWidget {
         debugShowCheckedModeBanner: false,
         localizationsDelegates: L10n.localizationsDelegates,
         supportedLocales: L10n.supportedLocales,
+        theme: lightTheme,
+        darkTheme: darkTheme,
         home: Scaffold(
           bottomNavigationBar: BottomNavigationBar(
             currentIndex: index,

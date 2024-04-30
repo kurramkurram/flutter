@@ -19,8 +19,10 @@ class DrawerView extends HookConsumerWidget {
             title: Text(l10n.drawer_about_app),
             onTap: () {
               Navigator.pop(context);
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const AboutAppView()));
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const AboutAppView()),
+              );
             },
           ),
           ListTile(
@@ -31,16 +33,20 @@ class DrawerView extends HookConsumerWidget {
             title: Text(l10n.drawer_license),
             onTap: () {
               Navigator.pop(context);
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const LicenseView()));
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const LicenseView()),
+              );
             },
           ),
           ListTile(
             title: Text(l10n.drawer_policy),
             onTap: () {
               Navigator.pop(context);
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const TermsView()));
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const TermsView()),
+              );
             },
           )
         ],

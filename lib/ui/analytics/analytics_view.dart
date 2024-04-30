@@ -14,6 +14,7 @@ class AnalyticsView extends HookConsumerWidget {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
+        backgroundColor: Colors.blue.shade100,
         leading: IconButton(
           icon: const Icon(Icons.menu),
           onPressed: () {
