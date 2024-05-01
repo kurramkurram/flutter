@@ -11,25 +11,22 @@ import 'package:flutter_app/util/log.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class SettingsView extends HookConsumerWidget {
-  SettingsView({super.key});
-
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  const SettingsView({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = L10n.of(context)!;
 
     return Scaffold(
-      key: _scaffoldKey,
       appBar: AppBar(
         backgroundColor: Colors.blue.shade100,
         leading: IconButton(
-          icon: const Icon(Icons.menu),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
-            _scaffoldKey.currentState?.openDrawer();
+            Navigator.pop(context);
           },
         ),
-        title: Text(l10n.settings),
+        title: Text(l10n.drawer_settings),
       ),
       drawer: const DrawerView(),
       body: Center(

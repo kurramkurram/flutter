@@ -11,10 +11,10 @@ class L10nJa extends L10n {
   String get analytics => '統計';
 
   @override
-  String get settings => '設定';
+  String get person => 'ユーザ';
 
   @override
-  String get person => 'ユーザ';
+  String get drawer_settings => '設定';
 
   @override
   String get drawer_about_app => 'アプリについて';

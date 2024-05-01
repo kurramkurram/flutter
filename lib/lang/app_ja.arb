@@ -3,9 +3,9 @@
   
   "home": "ホーム",
   "analytics": "統計",
-  "settings": "設定",
   "person": "ユーザ",
 
+  "drawer_settings": "設定",
   "drawer_about_app": "アプリについて",
   "drawer_qa": "QA",
   "drawer_license": "ライセンス",

@@ -103,17 +103,17 @@ abstract class L10n {
   /// **'統計'**
   String get analytics;
 
-  /// No description provided for @settings.
-  ///
-  /// In ja, this message translates to:
-  /// **'設定'**
-  String get settings;
-
   /// No description provided for @person.
   ///
   /// In ja, this message translates to:
   /// **'ユーザ'**
   String get person;
+
+  /// No description provided for @drawer_settings.
+  ///
+  /// In ja, this message translates to:
+  /// **'設定'**
+  String get drawer_settings;
 
   /// No description provided for @drawer_about_app.
   ///
