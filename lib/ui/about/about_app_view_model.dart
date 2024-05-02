@@ -1,34 +1,25 @@
+import 'dart:async';
+
 import 'package:flutter_app/data/repository/package_info_repository.dart';
 import 'package:flutter_app/ui/about/about_app_view_state.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-final aboutAppViewModelProvider = StateNotifierProvider.autoDispose<
-    AboutAppViewModel, AsyncValue<AboutAppViewState>>(
-  (ref) => AboutAppViewModel(ref),
+final aboutAppViewModelProvider =
+    AsyncNotifierProvider<AboutAppViewModel, AboutAppViewState>(
+  () => AboutAppViewModel(),
 );
 
-class AboutAppViewModel extends StateNotifier<AsyncValue<AboutAppViewState>> {
-  AboutAppViewModel(
-    this._ref,
-  ) : super(const AsyncValue.loading()) {
-    _fetchAppInfo();
-  }
+class AboutAppViewModel extends AsyncNotifier<AboutAppViewState> {
+  late final _packageInfoRepository = ref.read(packageInfoRepositoryProvider);
 
-  final Ref _ref;
+  @override
+  FutureOr<AboutAppViewState> build() async {
+    final appName = await _packageInfoRepository.getAppName();
+    final versionName = await _packageInfoRepository.getAppVersionName();
 
-  late final packageInfoRepository = _ref.read(packageInfoRepositoryProvider);
-
-  Future<void> _fetchAppInfo() async {
-    state = const AsyncValue.loading();
-
-    state = await AsyncValue.guard(() async {
-      final appName = await packageInfoRepository.getAppName();
-      final versionName = await packageInfoRepository.getAppVersionName();
-
-      return AboutAppViewState(
-        appName: appName,
-        appVersionName: versionName,
-      );
-    });
+    return AboutAppViewState(
+      appName: appName,
+      appVersionName: versionName,
+    );
   }
 }
