@@ -15,8 +15,14 @@ class DrawerView extends HookConsumerWidget {
     final l10n = L10n.of(context)!;
 
     return Container(
-      color: Colors.blue.shade100,
       width: MediaQuery.of(context).size.width * 0.7,
+      decoration: BoxDecoration(
+        color: Colors.blue.shade100,
+        borderRadius: const BorderRadius.only(
+          topRight: Radius.circular(30),
+          bottomRight: Radius.circular(30),
+        ),
+      ),
       child: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
