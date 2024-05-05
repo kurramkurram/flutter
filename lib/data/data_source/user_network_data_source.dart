@@ -37,7 +37,8 @@ class UserResult {
 class UserInfo {
   const UserInfo({this.name, this.note, this.age, this.registerDate});
 
-  factory UserInfo.fromJson(Map<String, dynamic> json) => _$UserInfoFromJson(json);
+  factory UserInfo.fromJson(Map<String, dynamic> json) =>
+      _$UserInfoFromJson(json);
 
   final String? name;
   final String? note;
