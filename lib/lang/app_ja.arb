@@ -2,6 +2,7 @@
   "@@locale": "ja",
   
   "home": "ホーム",
+  "search": "検索",
   "analytics": "統計",
   "person": "ユーザ",
 
@@ -10,6 +11,8 @@
   "drawer_qa": "QA",
   "drawer_license": "ライセンス",
   "drawer_policy": "利用規約",
+
+  "search_book_hint": "タイトル",
 
   "about_app_app_name": "アプリ名",
   "about_app_version": "バージョン名",

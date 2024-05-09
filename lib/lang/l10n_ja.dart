@@ -8,6 +8,9 @@ class L10nJa extends L10n {
   String get home => 'ホーム';
 
   @override
+  String get search => '検索';
+
+  @override
   String get analytics => '統計';
 
   @override
@@ -27,6 +30,9 @@ class L10nJa extends L10n {
 
   @override
   String get drawer_policy => '利用規約';
+
+  @override
+  String get search_book_hint => 'タイトル';
 
   @override
   String get about_app_app_name => 'アプリ名';

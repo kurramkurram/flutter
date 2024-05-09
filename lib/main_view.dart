@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/lang/l10n.dart';
-import 'package:flutter_app/ui/analytics/analytics_view.dart';
 import 'package:flutter_app/ui/home/home_view.dart';
+import 'package:flutter_app/ui/search/search_view.dart';
 import 'package:flutter_app/ui/user/user_view.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -12,7 +12,7 @@ final indexProvider = StateProvider(
 class MainView extends HookConsumerWidget {
   MainView({super.key});
 
-  final _screen = [HomeView(), AnalyticsView(), UserView()];
+  final _screen = [HomeView(), SearchView(), UserView()];
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -27,7 +27,7 @@ class MainView extends HookConsumerWidget {
           BottomNavigationBarItem(
               icon: const Icon(Icons.home), label: l10n.home),
           BottomNavigationBarItem(
-              icon: const Icon(Icons.analytics), label: l10n.analytics),
+              icon: const Icon(Icons.analytics), label: l10n.search),
           BottomNavigationBarItem(
               icon: const Icon(Icons.person), label: l10n.person),
         ],

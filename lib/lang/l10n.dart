@@ -97,6 +97,12 @@ abstract class L10n {
   /// **'ホーム'**
   String get home;
 
+  /// No description provided for @search.
+  ///
+  /// In ja, this message translates to:
+  /// **'検索'**
+  String get search;
+
   /// No description provided for @analytics.
   ///
   /// In ja, this message translates to:
@@ -138,6 +144,12 @@ abstract class L10n {
   /// In ja, this message translates to:
   /// **'利用規約'**
   String get drawer_policy;
+
+  /// No description provided for @search_book_hint.
+  ///
+  /// In ja, this message translates to:
+  /// **'タイトル'**
+  String get search_book_hint;
 
   /// No description provided for @about_app_app_name.
   ///
