@@ -32,6 +32,9 @@ class L10nJa extends L10n {
   String get drawer_policy => '利用規約';
 
   @override
+  String get user_recommend_book => 'あなたにおすすめの書籍';
+
+  @override
   String get search_book_hint => 'タイトル';
 
   @override

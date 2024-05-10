@@ -21,7 +21,7 @@ class SerachItem extends HookConsumerWidget {
         children: [
           if (isbn != null) ...[
             Image.network(
-              'https://covers.openlibrary.org/b/isbn/${isbn!}-S.jpg',
+              'https://covers.openlibrary.org/b/isbn/${isbn!}-M.jpg',
               height: 100,
               width: 60,
               errorBuilder: (context, error, stackTrace) => const SizedBox(

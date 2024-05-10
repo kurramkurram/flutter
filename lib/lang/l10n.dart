@@ -145,6 +145,12 @@ abstract class L10n {
   /// **'利用規約'**
   String get drawer_policy;
 
+  /// No description provided for @user_recommend_book.
+  ///
+  /// In ja, this message translates to:
+  /// **'あなたにおすすめの書籍'**
+  String get user_recommend_book;
+
   /// No description provided for @search_book_hint.
   ///
   /// In ja, this message translates to:
