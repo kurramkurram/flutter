@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/lang/l10n.dart';
+import 'package:flutter_app/ui/component/chart/bar_chart.dart';
 import 'package:flutter_app/ui/component/chart/pie_chart.dart';
 import 'package:flutter_app/ui/drawer/drawer_view.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -30,10 +31,11 @@ class AnalyticsView extends HookConsumerWidget {
           Text(l10n.analytics_this_month_read),
           const SizedBox(height: 24),
           const Expanded(
-            child: PieChart(
-              readCount: 5,
-              targetCount: 30,
-            ),
+            // child: PieChart(
+            //   readCount: 5,
+            //   targetCount: 30,
+            // ),
+            child: BarChart(),
           ),
         ],
       ),
