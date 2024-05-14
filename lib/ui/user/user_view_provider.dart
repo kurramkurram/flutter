@@ -9,7 +9,7 @@ final userViewProvider = FutureProvider((ref) async {
 });
 
 final userViewRecommendProvider = FutureProvider((ref) async {
-  // TODO 今は固定で表示させる
+  // 今は固定で表示させる
   return [
     Docs('The Toyota Way', [], ['9780071392310']),
     Docs('One Piece', [], ['9788468471525']),

@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/util/log.dart';
 
 class BarChart extends StatefulWidget {
-  const BarChart({super.key});
+  const BarChart({
+    super.key,
+    required this.read,
+    required this.max,
+    required this.delay,
+  });
+
+  final int read;
+  final int max;
+  final int delay;
 
   @override
   State<StatefulWidget> createState() => _BarChartState();
@@ -25,7 +33,15 @@ class _BarChartState extends State<BarChart>
     _tween = Tween<double>(begin: 0, end: 1);
 
     _animation = _animationController.drive(_tween);
-    _animationController.forward();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    Future.delayed(Duration(milliseconds: widget.delay * 100), () {
+      _animationController.forward();
+    });
   }
 
   @override
@@ -33,12 +49,24 @@ class _BarChartState extends State<BarChart>
     return AnimatedBuilder(
       animation: _animation,
       builder: (context, child) {
-        return CustomPaint(
-          painter: _ChartPainter(animation: _animation.value),
-          child: const SizedBox(
-            width: 100,
-            height: 500,
-          ),
+        return Stack(
+          children: [
+            CustomPaint(
+              painter: _ChartPainter(
+                read: widget.read,
+                max: widget.max,
+                animation: _animation.value,
+              ),
+              child: const SizedBox(
+                width: 40,
+                height: 150,
+              ),
+            ),
+            SizedBox(
+              width: 40,
+              child: Center(child: Text('${widget.read}')),
+            ),
+          ],
         );
       },
     );
@@ -53,26 +81,39 @@ class _BarChartState extends State<BarChart>
 
 class _ChartPainter extends CustomPainter {
   _ChartPainter({
+    required this.read,
+    required this.max,
     required this.animation,
   });
 
+  final int read;
+  final int max;
   final double animation;
 
   @override
   void paint(Canvas canvas, Size size) {
     final barOuter = Paint()
       ..color = Colors.blue.shade800
-      ..strokeWidth = 30.0
+      ..strokeWidth = 28.0
       ..style = PaintingStyle.stroke;
 
     final barInner = Paint()
       ..color = Colors.red.shade100
-      ..strokeWidth = 28.0
+      ..strokeWidth = 25.0
       ..style = PaintingStyle.stroke;
-    Log.d('animation = $animation');
-    canvas.drawLine(const Offset(100, 100), const Offset(100, 50), barOuter);
+
     canvas.drawLine(
-        const Offset(100, 100), Offset(100, 100 - 40 * animation), barInner);
+      Offset(size.width / 2, 100),
+      Offset(size.width / 2, 150),
+      barOuter,
+    );
+
+    double percentage = read / max;
+    canvas.drawLine(
+      Offset(size.width / 2, 150 - 150 * percentage * animation),
+      Offset(size.width / 2, 150),
+      barInner,
+    );
   }
 
   @override

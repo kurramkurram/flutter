@@ -5,6 +5,7 @@ import 'package:flutter_app/theme/theme.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 void main() {
+  // debugPaintSizeEnabled = true;
   runApp(const ProviderScope(
     child: MainApp(),
   ));
