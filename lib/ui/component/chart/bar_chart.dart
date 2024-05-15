@@ -103,7 +103,7 @@ class _ChartPainter extends CustomPainter {
       ..style = PaintingStyle.stroke;
 
     canvas.drawLine(
-      Offset(size.width / 2, 100),
+      Offset(size.width / 2, 0),
       Offset(size.width / 2, 150),
       barOuter,
     );
