@@ -17,6 +17,7 @@ class SeacrhViewModel extends AsyncNotifier<Books> {
   }
 
   FutureOr<void> search(String title) async {
+    state = const AsyncValue.loading();
     state = await AsyncValue.guard(() async {
       final dio = Dio();
       return await ref.read(bookRepositoryProvider(dio)).fetchBooks(title);

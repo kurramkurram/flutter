@@ -49,7 +49,7 @@ class UserView extends HookConsumerWidget {
                 );
               },
               error: (error, stackTrace) => Container(),
-              loading: () => Container(),
+              loading: () => const Center(child: CircularProgressIndicator()),
             ),
             const SizedBox(height: 24),
             Text(l10n.user_recommend_book),
@@ -70,7 +70,7 @@ class UserView extends HookConsumerWidget {
                 );
               },
               error: (error, stackTrace) => Container(),
-              loading: () => Container(),
+              loading: () => const Center(child: CircularProgressIndicator()),
             ),
           ],
         ),
