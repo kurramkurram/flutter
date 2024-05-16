@@ -46,7 +46,7 @@ class LicenseView extends HookConsumerWidget {
           },
           error: (Object error, StackTrace stackTrace) =>
               Text(l10n.license_error),
-          loading: () => const CircularProgressIndicator(),
+          loading: () => const Center(child: CircularProgressIndicator()),
         ),
       ),
     );

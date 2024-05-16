@@ -48,7 +48,7 @@ class AboutAppView extends HookConsumerWidget {
                 );
               },
               error: (Object error, StackTrace stackTrace) => const Center(),
-              loading: () => const Center(),
+              loading: () => const Center(child: CircularProgressIndicator()),
             ),
           ],
         ),

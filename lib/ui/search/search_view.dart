@@ -21,9 +21,9 @@ class SearchView extends HookConsumerWidget {
       appBar: AppBar(
         backgroundColor: Colors.blue.shade100,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: const Icon(Icons.menu),
           onPressed: () {
-            Navigator.pop(context);
+            _scaffoldKey.currentState?.openDrawer();
           },
         ),
         title: Text(l10n.search),
@@ -68,7 +68,7 @@ class SearchView extends HookConsumerWidget {
                   }
                 },
                 error: (error, stackTrace) => Container(),
-                loading: () => Container(),
+                loading: () => const Center(child: CircularProgressIndicator()),
               ),
             )
           ],

@@ -16,7 +16,7 @@ class SerachItem extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Padding(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(8),
       child: Row(
         children: [
           if (isbn != null) ...[
@@ -32,6 +32,7 @@ class SerachItem extends HookConsumerWidget {
           ] else ...[
             const SizedBox(height: 100, width: 60),
           ],
+          const SizedBox(width: 8),
           Flexible(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
