@@ -2,7 +2,6 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-
 class PieChart extends StatefulWidget {
   const PieChart({
     super.key,
@@ -45,51 +44,55 @@ class _PieChartState extends State<PieChart>
       builder: (BuildContext context, BoxConstraints constraints) {
         double parentHeight = constraints.maxHeight;
 
-        return Stack(
-          children: [
-            CustomPaint(
-              painter: _ChartPainter(
-                readCount: widget.readCount,
-                targetCount: widget.targetCount,
-                arcAnimation: _animationController.value,
-              ),
-              child: Container(),
-            ),
-            Positioned(
-              top: parentHeight / 3.5,
-              left: 0,
-              right: 0,
-              child: Center(
-                child: widget.readCount >= widget.targetCount
-                    ? Column(
-                        children: [
-                          Text(
-                            "${(widget.readCount * _animationController.value).round()}/${widget.targetCount.round()}",
-                            style: const TextStyle(
-                              color: Color.fromARGB(255, 255, 255, 255),
-                              fontSize: 22,
-                              fontWeight: FontWeight.w800,
+        return AnimatedBuilder(
+            animation: _animationController,
+            builder: (context, child) {
+              return Stack(
+                children: [
+                  CustomPaint(
+                    painter: _ChartPainter(
+                      readCount: widget.readCount,
+                      targetCount: widget.targetCount,
+                      arcAnimation: _animationController.value,
+                    ),
+                    child: Container(),
+                  ),
+                  Positioned(
+                    top: parentHeight / 3.5,
+                    left: 0,
+                    right: 0,
+                    child: Center(
+                      child: widget.readCount >= widget.targetCount
+                          ? Column(
+                              children: [
+                                Text(
+                                  "${(widget.readCount * _animationController.value).round()}/${widget.targetCount.round()}",
+                                  style: const TextStyle(
+                                    color: Color.fromARGB(255, 255, 255, 255),
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.w800,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ],
+                            )
+                          : Padding(
+                              padding: const EdgeInsets.only(top: 15),
+                              child: Text(
+                                "${(widget.readCount * _animationController.value).round()}/${widget.targetCount.round()}",
+                                style: const TextStyle(
+                                  color: Color.fromARGB(255, 255, 255, 255),
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.w800,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
                             ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
-                      )
-                    : Padding(
-                        padding: const EdgeInsets.only(top: 15),
-                        child: Text(
-                          "${(widget.readCount * _animationController.value).round()}/${widget.targetCount.round()}",
-                          style: const TextStyle(
-                            color: Color.fromARGB(255, 255, 255, 255),
-                            fontSize: 25,
-                            fontWeight: FontWeight.w800,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-              ),
-            ),
-          ],
-        );
+                    ),
+                  ),
+                ],
+              );
+            });
       },
     );
   }
@@ -150,16 +153,16 @@ class _ChartPainter extends CustomPainter {
     if (readCount < targetCount) {
       canvas.drawArc(
         Rect.fromCircle(center: centerOffset, radius: radius / 1.5),
-        2 * pi / 4,
-        8 * pi / 4,
+        pi / 2,
+        2 * pi,
         false,
         outerPaint,
       );
 
       canvas.drawArc(
         Rect.fromCircle(center: centerOffset, radius: radius / 1.5),
-        2 * pi / 4,
-        8 * pi / 4 * percentage * arcAnimation,
+        pi / 2,
+        2 * pi * percentage * arcAnimation,
         false,
         innerPaint,
       );
