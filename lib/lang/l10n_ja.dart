@@ -38,6 +38,9 @@ class L10nJa extends L10n {
   String get search_book_hint => 'タイトル';
 
   @override
+  String get analytics_this_month_read => '今月の読書量';
+
+  @override
   String get about_app_app_name => 'アプリ名';
 
   @override

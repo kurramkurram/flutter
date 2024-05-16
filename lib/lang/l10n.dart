@@ -157,6 +157,12 @@ abstract class L10n {
   /// **'タイトル'**
   String get search_book_hint;
 
+  /// No description provided for @analytics_this_month_read.
+  ///
+  /// In ja, this message translates to:
+  /// **'今月の読書量'**
+  String get analytics_this_month_read;
+
   /// No description provided for @about_app_app_name.
   ///
   /// In ja, this message translates to:
