@@ -110,7 +110,7 @@ class _ChartPainter extends CustomPainter {
 
   final int readCount;
   final int targetCount;
-  double arcAnimation;
+  final double arcAnimation;
 
   @override
   void paint(Canvas canvas, Size size) {
