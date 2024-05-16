@@ -18,29 +18,32 @@ class BarChart extends StatefulWidget {
 
 class _BarChartState extends State<BarChart>
     with SingleTickerProviderStateMixin {
-  late AnimationController _animationController;
+  AnimationController? _animationController;
   late Animation _animation;
   late Tween _tween;
 
   @override
   void initState() {
     super.initState();
+
+    _tween = Tween<double>(begin: 0, end: 1);
+
     _animationController = AnimationController(
       duration: const Duration(milliseconds: 2000),
       vsync: this,
     );
 
-    _tween = Tween<double>(begin: 0, end: 1);
-
-    _animation = _animationController.drive(_tween);
+    _animation = _animationController!.drive(_tween);
   }
 
   @override
-  void didChangeDependencies() {
+  void didChangeDependencies() async {
     super.didChangeDependencies();
 
-    Future.delayed(Duration(milliseconds: widget.delay * 100), () {
-      _animationController.forward();
+    await Future.delayed(Duration(milliseconds: widget.delay * 100), () {
+      if (_animationController != null) {
+        _animationController!.forward();
+      }
     });
   }
 
@@ -74,7 +77,11 @@ class _BarChartState extends State<BarChart>
 
   @override
   void dispose() {
-    _animationController.dispose();
+    if (_animationController != null) {
+      _animationController!.dispose();
+      _animationController = null;
+    }
+
     super.dispose();
   }
 }
