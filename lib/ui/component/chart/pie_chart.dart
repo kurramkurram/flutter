@@ -19,7 +19,9 @@ class PieChart extends StatefulWidget {
 class _PieChartState extends State<PieChart>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
-  bool animationPlayed = false;
+  late Animation _animation;
+
+  static final  _tween = Tween<double>(begin: 0, end: 1);
 
   @override
   void initState() {
@@ -32,9 +34,9 @@ class _PieChartState extends State<PieChart>
 
     final curvedAnimation =
         CurvedAnimation(parent: _animationController, curve: Curves.easeIn);
-    Tween<double>(begin: 0, end: 1).animate(curvedAnimation).addListener(() {
-      setState(() {});
-    });
+    _tween.animate(curvedAnimation);
+
+    _animation = _animationController.drive(_tween);
     _animationController.forward(from: 0.0);
   }
 
@@ -45,7 +47,7 @@ class _PieChartState extends State<PieChart>
         double parentHeight = constraints.maxHeight;
 
         return AnimatedBuilder(
-            animation: _animationController,
+            animation: _animation,
             builder: (context, child) {
               return Stack(
                 children: [
@@ -138,13 +140,13 @@ class _ChartPainter extends CustomPainter {
 
     final outerPaint = Paint()
       ..color = Colors.blue.shade800
-      ..strokeCap = StrokeCap.square
+      ..strokeCap = StrokeCap.butt
       ..strokeWidth = 30.0
       ..style = PaintingStyle.stroke;
 
     final innerPaint = Paint()
       ..color = Colors.blue.shade100
-      ..strokeCap = StrokeCap.square
+      ..strokeCap = StrokeCap.butt
       ..strokeWidth = 25.0
       ..style = PaintingStyle.stroke;
 

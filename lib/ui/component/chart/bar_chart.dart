@@ -20,13 +20,11 @@ class _BarChartState extends State<BarChart>
     with SingleTickerProviderStateMixin {
   AnimationController? _animationController;
   late Animation _animation;
-  late Tween _tween;
+  static final Tween _tween = Tween<double>(begin: 0, end: 1);
 
   @override
   void initState() {
     super.initState();
-
-    _tween = Tween<double>(begin: 0, end: 1);
 
     _animationController = AnimationController(
       duration: const Duration(milliseconds: 2000),

@@ -2,12 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/data/repository/permission_repository.dart';
 import 'package:flutter_app/lang/l10n.dart';
 import 'package:flutter_app/ui/drawer/drawer_view.dart';
+import 'package:flutter_app/ui/home/home_view_model.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
-final counterProvider = StateProvider(
-  (ref) => 0,
-);
 
 class HomeView extends HookConsumerWidget {
   HomeView({super.key});
@@ -16,10 +13,10 @@ class HomeView extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    StateController<int> counterNotifier = ref.watch(counterProvider.notifier);
     final permissionRepository = ref.read(permissionRepositoryProvider);
 
-    final count = ref.watch(counterProvider);
+    final homeViewModel = ref.watch(homeViewModelProvider);
+
     final l10n = L10n.of(context)!;
 
     useEffect(() {
@@ -47,13 +44,13 @@ class HomeView extends HookConsumerWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text('$count'),
-            TextButton(
-              onPressed: () {
-                counterNotifier.state++;
-              },
-              child: Text(l10n.home),
-            ),
+            homeViewModel.when(
+                data: (data) {
+                  return Container();
+                },
+                error: (error, stackTrace) => Container(),
+                loading: () =>
+                    const Center(child: CircularProgressIndicator())),
           ],
         ),
       ),
