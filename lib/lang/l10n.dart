@@ -157,6 +157,36 @@ abstract class L10n {
   /// **'タイトル'**
   String get search_book_hint;
 
+  /// No description provided for @detail_book_title.
+  ///
+  /// In ja, this message translates to:
+  /// **'タイトル'**
+  String get detail_book_title;
+
+  /// No description provided for @detail_book_author.
+  ///
+  /// In ja, this message translates to:
+  /// **'著者'**
+  String get detail_book_author;
+
+  /// No description provided for @detail_book_read.
+  ///
+  /// In ja, this message translates to:
+  /// **'読んだ'**
+  String get detail_book_read;
+
+  /// No description provided for @detail_book_want_read.
+  ///
+  /// In ja, this message translates to:
+  /// **'読みたい'**
+  String get detail_book_want_read;
+
+  /// No description provided for @detail_book_tag.
+  ///
+  /// In ja, this message translates to:
+  /// **'タグ'**
+  String get detail_book_tag;
+
   /// No description provided for @analytics_this_month_read.
   ///
   /// In ja, this message translates to:

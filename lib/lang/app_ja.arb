@@ -16,6 +16,12 @@
 
   "search_book_hint": "タイトル",
 
+  "detail_book_title": "タイトル",
+  "detail_book_author": "著者",
+  "detail_book_read": "読んだ",
+  "detail_book_want_read": "読みたい",
+  "detail_book_tag": "タグ",
+
   "analytics_this_month_read": "今月の読書量",
 
   "about_app_app_name": "アプリ名",
