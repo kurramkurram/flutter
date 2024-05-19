@@ -21,13 +21,14 @@ class DetailBookView extends HookConsumerWidget {
     final l10n = L10n.of(context)!;
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.blue.shade100,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
-        title: Text(l10n.drawer_about_app),
+        title: Text(l10n.detail_book),
       ),
       body: SingleChildScrollView(
         child: SizedBox(

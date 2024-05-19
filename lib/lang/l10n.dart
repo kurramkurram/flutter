@@ -157,6 +157,12 @@ abstract class L10n {
   /// **'タイトル'**
   String get search_book_hint;
 
+  /// No description provided for @detail_book.
+  ///
+  /// In ja, this message translates to:
+  /// **'詳細'**
+  String get detail_book;
+
   /// No description provided for @detail_book_title.
   ///
   /// In ja, this message translates to:
