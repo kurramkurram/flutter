@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/lang/l10n.dart';
 import 'package:flutter_app/ui/component/list_item/search_item.dart';
+import 'package:flutter_app/ui/detail/detail_book_view.dart';
 import 'package:flutter_app/ui/search/search_view_model.dart';
 import 'package:flutter_app/util/log.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -44,24 +45,33 @@ class SearchView extends HookConsumerWidget {
                 data: (data) {
                   final books = data.docs;
                   if (books != null) {
-                    final List<Widget> item = [];
-                    for (var book in books) {
-                      item.add(
-                        SerachItem(
-                          title: book.title!,
-                          isbn: book.isbn?.first,
-                          author: book.authorName?.first,
-                        ),
-                      );
-                    }
-
                     return ListView.separated(
                       itemBuilder: (BuildContext context, int index) {
-                        return item[index];
+                        return InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => DetailBookView(
+                                  index: index,
+                                  title: books[index].title!,
+                                  isbn: books[index].isbn?.first,
+                                  author: books[index].authorName?.first,
+                                ),
+                              ),
+                            );
+                          },
+                          child: SerachItem(
+                            index: index,
+                            title: books[index].title!,
+                            isbn: books[index].isbn?.first,
+                            author: books[index].authorName?.first,
+                          ),
+                        );
                       },
                       separatorBuilder: (BuildContext context, int index) =>
                           const Divider(),
-                      itemCount: item.length,
+                      itemCount: books.length,
                     );
                   } else {
                     return Container();

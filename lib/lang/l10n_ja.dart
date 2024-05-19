@@ -38,6 +38,21 @@ class L10nJa extends L10n {
   String get search_book_hint => 'タイトル';
 
   @override
+  String get detail_book_title => 'タイトル';
+
+  @override
+  String get detail_book_author => '著者';
+
+  @override
+  String get detail_book_read => '読んだ';
+
+  @override
+  String get detail_book_want_read => '読みたい';
+
+  @override
+  String get detail_book_tag => 'タグ';
+
+  @override
   String get analytics_this_month_read => '今月の読書量';
 
   @override

@@ -4,11 +4,13 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 class SerachItem extends HookConsumerWidget {
   const SerachItem({
     super.key,
+    required this.index,
     required this.title,
     this.isbn,
     this.author,
   });
 
+  final int index;
   final String title;
   final String? author;
   final String? isbn;
@@ -20,13 +22,16 @@ class SerachItem extends HookConsumerWidget {
       child: Row(
         children: [
           if (isbn != null) ...[
-            Image.network(
-              'https://covers.openlibrary.org/b/isbn/${isbn!}-M.jpg',
-              height: 100,
-              width: 60,
-              errorBuilder: (context, error, stackTrace) => const SizedBox(
+            Hero(
+              tag: isbn!,
+              child: Image.network(
+                'https://covers.openlibrary.org/b/isbn/${isbn!}-M.jpg',
                 height: 100,
                 width: 60,
+                errorBuilder: (context, error, stackTrace) => const SizedBox(
+                  height: 100,
+                  width: 60,
+                ),
               ),
             ),
           ] else ...[
@@ -37,9 +42,21 @@ class SerachItem extends HookConsumerWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(title),
+                Hero(
+                  tag: '$title$index',
+                  child: Text(
+                    title,
+                    style: Theme.of(context).textTheme.bodyLarge,
+                  ),
+                ),
                 if (author != null) ...[
-                  Text(author!),
+                  Hero(
+                    tag: '$author$index',
+                    child: Text(
+                      author!,
+                      style: Theme.of(context).textTheme.bodyLarge,
+                    ),
+                  )
                 ],
               ],
             ),
