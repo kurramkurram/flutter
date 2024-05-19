@@ -32,7 +32,7 @@ class MainView extends HookConsumerWidget {
           BottomNavigationBarItem(
               icon: const Icon(Icons.analytics), label: l10n.analytics),
           BottomNavigationBarItem(
-              icon: const Icon(Icons.person), label: l10n.person),
+              icon: const Icon(Icons.person), label: l10n.user),
         ],
         onTap: (value) => indexNotifier.state = value,
         type: BottomNavigationBarType.fixed,

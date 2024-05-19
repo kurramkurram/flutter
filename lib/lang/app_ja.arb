@@ -4,7 +4,7 @@
   "home": "ホーム",
   "search": "検索",
   "analytics": "統計",
-  "person": "ユーザ",
+  "user": "ユーザ",
 
   "drawer_settings": "設定",
   "drawer_about_app": "アプリについて",
@@ -12,6 +12,7 @@
   "drawer_license": "ライセンス",
   "drawer_policy": "利用規約",
 
+  "user_not_registered": "ユーザ未登録",
   "user_recommend_book": "あなたにおすすめの書籍",
 
   "search_book_hint": "タイトル",

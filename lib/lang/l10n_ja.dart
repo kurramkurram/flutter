@@ -14,7 +14,7 @@ class L10nJa extends L10n {
   String get analytics => '統計';
 
   @override
-  String get person => 'ユーザ';
+  String get user => 'ユーザ';
 
   @override
   String get drawer_settings => '設定';
@@ -30,6 +30,9 @@ class L10nJa extends L10n {
 
   @override
   String get drawer_policy => '利用規約';
+
+  @override
+  String get user_not_registered => 'ユーザ未登録';
 
   @override
   String get user_recommend_book => 'あなたにおすすめの書籍';

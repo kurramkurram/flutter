@@ -28,33 +28,45 @@ class UserView extends HookConsumerWidget {
             _scaffoldKey.currentState?.openDrawer();
           },
         ),
-        title: Text(l10n.person),
+        title: Text(l10n.user),
       ),
       drawer: const DrawerView(),
-      body: Center(
-        child: Column(
-          children: [
-            person.when(
-              data: (UserResult result) {
-                final person = result.data;
-                return Column(
-                  children: [
-                    if (person != null) ...[
-                      Text('${person.name}'),
-                      Text('${person.note}'),
-                      Text('${person.age}'),
-                      Text('${person.registerDate}')
-                    ]
-                  ],
-                );
-              },
-              error: (error, stackTrace) => Container(),
-              loading: () => const Center(child: CircularProgressIndicator()),
-            ),
-            const SizedBox(height: 24),
-            Text(l10n.user_recommend_book),
-            const SizedBox(height: 12),
-            recommend.when(
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Column(children: [
+              Row(
+                children: [
+                  const Icon(Icons.person),
+                  const SizedBox(width: 8),
+                  person.when(
+                    data: (UserResult result) {
+                      final person = result.data;
+                      return Column(
+                        children: [
+                          if (person != null) ...[
+                            Text('${person.name}'),
+                          ] else ...[
+                            Text(l10n.user_not_registered),
+                          ]
+                        ],
+                      );
+                    },
+                    error: (error, stackTrace) => Container(),
+                    loading: () =>
+                        const Center(child: CircularProgressIndicator()),
+                  ),
+                ],
+              ),
+              Divider(color: Colors.grey.shade300),
+            ]),
+          ),
+          const SizedBox(height: 24),
+          Text(l10n.user_recommend_book),
+          const SizedBox(height: 12),
+          Center(
+            child: recommend.when(
               data: (List result) {
                 return CarouselSlider(
                   options: CarouselOptions(
@@ -72,8 +84,8 @@ class UserView extends HookConsumerWidget {
               error: (error, stackTrace) => Container(),
               loading: () => const Center(child: CircularProgressIndicator()),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
