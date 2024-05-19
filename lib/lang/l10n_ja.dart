@@ -38,6 +38,9 @@ class L10nJa extends L10n {
   String get search_book_hint => 'タイトル';
 
   @override
+  String get detail_book => '詳細';
+
+  @override
   String get detail_book_title => 'タイトル';
 
   @override
