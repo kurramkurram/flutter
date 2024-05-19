@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/lang/l10n.dart';
 import 'package:flutter_app/ui/component/list_item/search_item.dart';
 import 'package:flutter_app/ui/detail/detail_book_view.dart';
+import 'package:flutter_app/ui/drawer/drawer_view.dart';
 import 'package:flutter_app/ui/search/search_view_model.dart';
 import 'package:flutter_app/util/log.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -29,6 +30,7 @@ class SearchView extends HookConsumerWidget {
         ),
         title: Text(l10n.search),
       ),
+      drawer: const DrawerView(),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
