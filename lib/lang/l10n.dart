@@ -109,11 +109,11 @@ abstract class L10n {
   /// **'統計'**
   String get analytics;
 
-  /// No description provided for @person.
+  /// No description provided for @user.
   ///
   /// In ja, this message translates to:
   /// **'ユーザ'**
-  String get person;
+  String get user;
 
   /// No description provided for @drawer_settings.
   ///
@@ -144,6 +144,12 @@ abstract class L10n {
   /// In ja, this message translates to:
   /// **'利用規約'**
   String get drawer_policy;
+
+  /// No description provided for @user_not_registered.
+  ///
+  /// In ja, this message translates to:
+  /// **'ユーザ未登録'**
+  String get user_not_registered;
 
   /// No description provided for @user_recommend_book.
   ///
