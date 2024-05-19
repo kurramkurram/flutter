@@ -75,8 +75,7 @@ class DetailBookView extends HookConsumerWidget {
                             ),
                             const SizedBox(height: 12),
                             if (author != null) ...[
-                              Text(l10n.detail_book_author
-                              ),
+                              Text(l10n.detail_book_author),
                               Hero(
                                 tag: '$author$index',
                                 child: Text(
