@@ -7,6 +7,7 @@ import 'package:flutter_app/ui/component/button/base_button.dart';
 import 'package:flutter_app/ui/component/dialog/custom_alert_dialog.dart';
 import 'package:flutter_app/ui/component/toast/toast.dart';
 import 'package:flutter_app/ui/drawer/drawer_view.dart';
+import 'package:flutter_app/ui/settings/animation_sample/logo_animation.dart';
 import 'package:flutter_app/util/log.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -84,6 +85,8 @@ class SettingsView extends HookConsumerWidget {
                 );
               },
             ),
+            const SizedBox(height: 20),
+            const LogoAnimation(),
           ],
         ),
       ),
