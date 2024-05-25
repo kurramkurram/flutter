@@ -23,6 +23,8 @@
   "detail_book_read": "読んだ",
   "detail_book_want_read": "読みたい",
   "detail_book_tag": "タグ",
+  "detail_book_tag_not_registred": "タグを登録する",
+  "detail_book_date": "日付",
 
   "analytics_this_month_read": "今月の読書量",
 

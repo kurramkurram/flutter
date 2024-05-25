@@ -59,6 +59,12 @@ class L10nJa extends L10n {
   String get detail_book_tag => 'タグ';
 
   @override
+  String get detail_book_tag_not_registred => 'タグを登録する';
+
+  @override
+  String get detail_book_date => '日付';
+
+  @override
   String get analytics_this_month_read => '今月の読書量';
 
   @override
