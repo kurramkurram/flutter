@@ -19,7 +19,7 @@ class HomeItemcard extends HookConsumerWidget {
         child: InkWell(
       onTap: () => {Log.d('title - ${docs.title}')},
       child: CachedNetworkImage(
-        fit: BoxFit.fill,
+        fit: BoxFit.contain,
         width: 100,
         imageUrl:
             'https://covers.openlibrary.org/b/isbn/${docs.isbn?.first}-M.jpg',
