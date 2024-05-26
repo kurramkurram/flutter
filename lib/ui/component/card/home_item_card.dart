@@ -1,7 +1,6 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/data/data_source/book_remote_data_source.dart';
-import 'package:flutter_app/util/log.dart';
+import 'package:flutter_app/ui/detail/detail_book_view.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class HomeItemcard extends HookConsumerWidget {
@@ -15,15 +14,34 @@ class HomeItemcard extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final isbn = docs.isbn?.first;
+
     return Center(
-        child: InkWell(
-      onTap: () => {Log.d('title - ${docs.title}')},
-      child: CachedNetworkImage(
-        fit: BoxFit.contain,
-        width: 100,
-        imageUrl:
-            'https://covers.openlibrary.org/b/isbn/${docs.isbn?.first}-M.jpg',
+      child: InkWell(
+        onTap: () => {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => DetailBookView(
+                index: -1,
+                docs: docs,
+              ),
+            ),
+          )
+        },
+        child: Hero(
+          tag: isbn!,
+          child: Image.network(
+            'https://covers.openlibrary.org/b/isbn/$isbn-M.jpg',
+            height: 300,
+            width: 180,
+            errorBuilder: (context, error, stackTrace) => const SizedBox(
+              height: 300,
+              width: 180,
+            ),
+          ),
+        ),
       ),
-    ));
+    );
   }
 }

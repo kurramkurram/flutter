@@ -199,6 +199,18 @@ abstract class L10n {
   /// **'タグ'**
   String get detail_book_tag;
 
+  /// No description provided for @detail_book_tag_not_registred.
+  ///
+  /// In ja, this message translates to:
+  /// **'タグを登録する'**
+  String get detail_book_tag_not_registred;
+
+  /// No description provided for @detail_book_date.
+  ///
+  /// In ja, this message translates to:
+  /// **'日付'**
+  String get detail_book_date;
+
   /// No description provided for @analytics_this_month_read.
   ///
   /// In ja, this message translates to:

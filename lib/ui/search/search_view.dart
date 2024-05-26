@@ -56,9 +56,7 @@ class SearchView extends HookConsumerWidget {
                               MaterialPageRoute(
                                 builder: (context) => DetailBookView(
                                   index: index,
-                                  title: books[index].title!,
-                                  isbn: books[index].isbn?.first,
-                                  author: books[index].authorName?.first,
+                                  docs: books[index],
                                 ),
                               ),
                             );
