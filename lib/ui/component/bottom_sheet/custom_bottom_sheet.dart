@@ -12,7 +12,7 @@ class CustomBottomSheet {
       enableDrag: true,
       builder: (BuildContext context) {
         return SizedBox(
-          height: deviceHeight * 0.5,
+          height: deviceHeight * 0.8,
           width: double.infinity,
           child: Column(
             children: [
