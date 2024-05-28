@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class CustomBottomSheet {
   Future<void> show({
@@ -18,10 +19,13 @@ class CustomBottomSheet {
             children: [
               const SizedBox(height: 50),
               Expanded(
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [body],
-                  ),
+                child: CustomScrollView(
+                  slivers: [
+                    SliverFillRemaining(
+                      hasScrollBody: false,
+                      child: body,
+                    )
+                  ],
                 ),
               )
             ],
