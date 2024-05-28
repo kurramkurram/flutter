@@ -32,6 +32,7 @@ class BottomSheetTag extends HookConsumerWidget {
           ],
         ),
         const SizedBox(height: 20),
+        Expanded(child: Container()),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
