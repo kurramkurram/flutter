@@ -10,7 +10,7 @@ class BaseButton extends HookConsumerWidget {
     this.backgroundColor,
     this.borderColor,
     this.borderWidth,
-    this.padinngVertical,
+    this.paddingVertical,
     this.paddingHorizontal,
     this.leading,
     this.action,
@@ -35,7 +35,7 @@ class BaseButton extends HookConsumerWidget {
   final double? borderWidth;
 
   // パディング上下
-  final double? padinngVertical;
+  final double? paddingVertical;
 
   // パディング左右
   final double? paddingHorizontal;
@@ -52,7 +52,7 @@ class BaseButton extends HookConsumerWidget {
       onPressed: onPressed,
       style: OutlinedButton.styleFrom(
         padding: EdgeInsets.symmetric(
-            vertical: padinngVertical ?? 16,
+            vertical: paddingVertical ?? 16,
             horizontal: paddingHorizontal ?? 16),
         backgroundColor: backgroundColor,
         shape: RoundedRectangleBorder(
@@ -66,11 +66,11 @@ class BaseButton extends HookConsumerWidget {
         children: [
           if (leading != null) ...[
             leading!,
+            const SizedBox(width: 10),
           ],
-          const SizedBox(width: 10),
           text,
-          const SizedBox(width: 10),
           if (action != null) ...[
+            const SizedBox(width: 10),
             action!,
           ]
         ],

@@ -1,7 +1,10 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/data/data_source/book_remote_data_source.dart';
 import 'package:flutter_app/lang/l10n.dart';
-import 'package:flutter_app/ui/component/card/label_card.dart';
+import 'package:flutter_app/ui/component/bottom_sheet/bottom_sheet_tag.dart';
+import 'package:flutter_app/ui/component/bottom_sheet/custom_bottom_sheet.dart';
+import 'package:flutter_app/ui/component/button/base_button.dart';
 import 'package:flutter_app/util/log.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -82,7 +85,17 @@ class DetailBookView extends HookConsumerWidget {
                 ),
                 TextSpan(
                   text: l10n.detail_book_tag_not_registred,
-                  style: Theme.of(context).textTheme.bodyLarge,
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyLarge
+                      ?.copyWith(decoration: TextDecoration.underline),
+                  recognizer: TapGestureRecognizer()
+                    ..onTap = () {
+                      CustomBottomSheet().show(
+                        context: context,
+                        body: const BottomSheetTag(),
+                      );
+                    },
                 )
               ]),
             ),
@@ -107,15 +120,20 @@ class DetailBookView extends HookConsumerWidget {
             runSpacing: 8,
             spacing: 8,
             children: [
-              LabelCard(
+              BaseButton(
+                radius: 16,
                 backgroundColor: Colors.blue.shade100,
-                text: l10n.detail_book_read,
+                text: Text(l10n.detail_book_read),
+                paddingVertical: 2,
+                onPressed: () {},
               ),
-              LabelCard(
+              BaseButton(
+                radius: 16,
                 backgroundColor: Colors.blue.shade100,
-                text: l10n.detail_book_want_read,
-                onPressed: () => {
-                  Log.d('押されました'),
+                text: Text(l10n.detail_book_want_read),
+                paddingVertical: 2,
+                onPressed: () {
+                  Log.d('押されました');
                 },
               ),
             ],
@@ -173,7 +191,9 @@ class DetailBookView extends HookConsumerWidget {
                             authorName(),
                             date(),
                             tag(),
-                            const SizedBox(height: 12,),
+                            const SizedBox(
+                              height: 12,
+                            ),
                             label(),
                           ],
                         ),

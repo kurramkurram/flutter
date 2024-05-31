@@ -9,7 +9,6 @@ class LabelCard extends HookConsumerWidget {
     this.borderRadius = 8,
     this.leading,
     required this.text,
-    this.onPressed,
   });
 
   /// 背景色
@@ -27,9 +26,6 @@ class LabelCard extends HookConsumerWidget {
   /// 文字列
   final String text;
 
-  /// 押下時のイベント
-  final Function? onPressed;
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Container(
@@ -39,20 +35,15 @@ class LabelCard extends HookConsumerWidget {
         border: Border.all(color: borderColor),
         borderRadius: BorderRadius.circular(borderRadius),
       ),
-      child: InkWell(
-        onTap: () {
-          if (onPressed != null) onPressed!();
-        },
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            if (leading != null) ...[
-              leading!,
-              const SizedBox(width: 8),
-            ],
-            Text(text)
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          if (leading != null) ...[
+            leading!,
+            const SizedBox(width: 8),
           ],
-        ),
+          Text(text)
+        ],
       ),
     );
   }
