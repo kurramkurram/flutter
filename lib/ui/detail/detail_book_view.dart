@@ -1,11 +1,10 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/data/data_source/book_remote_data_source.dart';
+import 'package:flutter_app/data/model/book.dart';
 import 'package:flutter_app/lang/l10n.dart';
 import 'package:flutter_app/ui/component/bottom_sheet/bottom_sheet_tag.dart';
 import 'package:flutter_app/ui/component/bottom_sheet/custom_bottom_sheet.dart';
 import 'package:flutter_app/ui/component/button/base_button.dart';
-import 'package:flutter_app/util/log.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class DetailBookView extends HookConsumerWidget {

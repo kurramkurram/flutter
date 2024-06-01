@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/data/data_source/book_remote_data_source.dart';
+import 'package:flutter_app/data/model/book.dart';
 import 'package:flutter_app/ui/detail/detail_book_view.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
