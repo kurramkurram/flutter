@@ -131,9 +131,7 @@ class DetailBookView extends HookConsumerWidget {
                 backgroundColor: Colors.blue.shade100,
                 text: Text(l10n.detail_book_want_read),
                 paddingVertical: 2,
-                onPressed: () {
-                  Log.d('押されました');
-                },
+                onPressed: () {},
               ),
             ],
           ),
