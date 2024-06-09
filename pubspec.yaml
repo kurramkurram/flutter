@@ -16,8 +16,8 @@ dependencies:
   hooks_riverpod: ^2.5.1
 
   # Storage
-  # sqflite: ^2.3.3
-  # path_provider: ^2.1.3
+  sqflite: ^2.3.3
+  path_provider: ^2.1.3
   shared_preferences: ^2.2.3
 
   # localization

@@ -13,6 +13,26 @@ enum ReadState {
   wantRead,
 }
 
+extension ReadStateExtension on ReadState {
+  int get id {
+    switch (this) {
+      case ReadState.unread:
+        return 0;
+      case ReadState.read:
+        return 1;
+      case ReadState.wantRead:
+        return 2;
+    }
+  }
+
+  static ReadState getState(int id) {
+    for (var state in ReadState.values) {
+      if (state.id == id) return state;
+    }
+    return ReadState.unread;
+  }
+}
+
 @JsonSerializable()
 class Books {
   const Books(this.docs);
@@ -25,7 +45,13 @@ class Books {
 
 @JsonSerializable()
 class Docs {
-  Docs(this.title, this.authorName, this.isbn);
+  Docs(
+    this.title,
+    this.authorName,
+    this.isbn, {
+    this.tag,
+    this.state = ReadState.unread,
+  });
 
   factory Docs.fromJson(Map<String, dynamic> json) => _$DocsFromJson(json);
 
@@ -43,7 +69,36 @@ class Docs {
   List<String>? tag;
 
   /// 読書状態
-  ReadState? state;
+  @Default(ReadState.unread)
+  ReadState state;
 
   Map<String, dynamic> toJson() => _$DocsToJson(this);
+
+  Map<String, dynamic> toMap() {
+    final author = authorName?.isNotEmpty ?? false ? authorName?.first : null;
+    final i = isbn?.isNotEmpty ?? false ? isbn?.first : null;
+    return {
+      "title": title,
+      "author_name": author,
+      "isbn": i,
+      "tag": tag?.first,
+      "state": state.id,
+    };
+  }
+
+  factory Docs.fromMap(Map<String, dynamic> map) {
+    final List<String>? authorName =
+        map['author_name'] == null ? null : [map['author_name']];
+    final List<String>? isbn = map['isbn'] == null ? null : [map['isbn']];
+    final List<String>? tag = map['tag'] == null ? null : [map['tag']];
+    final state = ReadStateExtension.getState(map['state'] as int);
+
+    return Docs(
+      map["title"],
+      authorName,
+      isbn,
+      tag: tag,
+      state: state,
+    );
+  }
 }
