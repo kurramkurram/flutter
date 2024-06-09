@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/data/model/book.dart';
 import 'package:flutter_app/lang/l10n.dart';
 import 'package:flutter_app/ui/component/list_item/search_item.dart';
 import 'package:flutter_app/ui/detail/detail_book_view.dart';
@@ -44,7 +45,7 @@ class SearchView extends HookConsumerWidget {
             ),
             Expanded(
               child: seacrh.when(
-                data: (data) {
+                data: (Books data) {
                   final books = data.docs;
                   if (books != null) {
                     return ListView.separated(

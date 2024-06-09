@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/data/repository/permission_repository.dart';
 import 'package:flutter_app/lang/l10n.dart';
+import 'package:flutter_app/data/model/book.dart';
 import 'package:flutter_app/ui/component/card/home_item_card.dart';
 import 'package:flutter_app/ui/drawer/drawer_view.dart';
 import 'package:flutter_app/ui/home/home_view_model.dart';
@@ -45,7 +46,7 @@ class HomeView extends HookConsumerWidget {
         children: [
           Expanded(
             child: homeViewModel.when(
-                data: (data) {
+                data: (Books data) {
                   return GridView.count(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 10,

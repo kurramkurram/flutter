@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/data/data_source/book_remote_data_source.dart';
+import 'package:flutter_app/data/model/book.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class RecommendCard extends HookConsumerWidget {
