@@ -20,16 +20,17 @@ Docs _$DocsFromJson(Map<String, dynamic> json) => Docs(
       json['title'] as String?,
       (json['author_name'] as List<dynamic>?)?.map((e) => e as String).toList(),
       (json['isbn'] as List<dynamic>?)?.map((e) => e as String).toList(),
-    )
-      ..tag = (json['tag'] as List<dynamic>?)?.map((e) => e as String).toList()
-      ..state = $enumDecodeNullable(_$ReadStateEnumMap, json['state']);
+      tag: (json['tag'] as List<dynamic>?)?.map((e) => e as String).toList(),
+      state: $enumDecodeNullable(_$ReadStateEnumMap, json['state']) ??
+          ReadState.unread,
+    );
 
 Map<String, dynamic> _$DocsToJson(Docs instance) => <String, dynamic>{
       'title': instance.title,
       'author_name': instance.authorName,
       'isbn': instance.isbn,
       'tag': instance.tag,
-      'state': _$ReadStateEnumMap[instance.state],
+      'state': _$ReadStateEnumMap[instance.state]!,
     };
 
 const _$ReadStateEnumMap = {
