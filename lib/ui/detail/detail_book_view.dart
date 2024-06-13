@@ -5,6 +5,9 @@ import 'package:flutter_app/lang/l10n.dart';
 import 'package:flutter_app/ui/component/bottom_sheet/bottom_sheet_tag.dart';
 import 'package:flutter_app/ui/component/bottom_sheet/custom_bottom_sheet.dart';
 import 'package:flutter_app/ui/component/button/base_button.dart';
+import 'package:flutter_app/ui/detail/detail_book_in_route.dart';
+import 'package:flutter_app/ui/detail/detail_book_view_model.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class DetailBookView extends HookConsumerWidget {
@@ -12,14 +15,26 @@ class DetailBookView extends HookConsumerWidget {
     super.key,
     required this.index,
     required this.docs,
+    required this.route,
   });
 
   final int index;
   final Docs docs;
+  final DetailBookInRoute route;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = L10n.of(context)!;
+
+    useEffect(() {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        ref.read(detailBookProvider.notifier).state = docs;
+      });
+
+      return null;
+    }, []);
+
+    final detailBookViewModel = ref.read(detailBookViewModelProvider.notifier);
 
     final isbn = docs.isbn?.first;
     final title = docs.title!;
@@ -124,14 +139,20 @@ class DetailBookView extends HookConsumerWidget {
                 backgroundColor: Colors.blue.shade100,
                 text: Text(l10n.detail_book_read),
                 paddingVertical: 2,
-                onPressed: () {},
+                onPressed: () {
+                  detailBookViewModel.read(route);
+                  Navigator.pop(context);
+                },
               ),
               BaseButton(
                 radius: 16,
                 backgroundColor: Colors.blue.shade100,
                 text: Text(l10n.detail_book_want_read),
                 paddingVertical: 2,
-                onPressed: () {},
+                onPressed: () {
+                  detailBookViewModel.wantRead(route);
+                  Navigator.pop(context);
+                },
               ),
             ],
           ),

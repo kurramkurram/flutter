@@ -1,8 +1,13 @@
 import 'package:flutter_app/data/model/book.dart';
 import 'package:flutter_app/util/log.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:sqflite/sqflite.dart';
 
-class DatabaseDataSource {
+final bookDatabaseDataSourceProvider = Provider(
+  (ref) => BookDatabaseDataSource(),
+);
+
+class BookDatabaseDataSource {
   Database? _database;
 
   Future<Database> get database async {
