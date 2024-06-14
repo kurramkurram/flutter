@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/data/model/book.dart';
+import 'package:flutter_app/ui/detail/detail_book_in_route.dart';
 import 'package:flutter_app/ui/detail/detail_book_view.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -25,6 +26,7 @@ class HomeItemcard extends HookConsumerWidget {
               builder: (context) => DetailBookView(
                 index: -1,
                 docs: docs,
+                route: DetailBookInRoute.home,
               ),
             ),
           )

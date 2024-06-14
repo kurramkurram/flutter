@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/data/model/book.dart';
 import 'package:flutter_app/lang/l10n.dart';
 import 'package:flutter_app/ui/component/list_item/search_item.dart';
+import 'package:flutter_app/ui/detail/detail_book_in_route.dart';
 import 'package:flutter_app/ui/detail/detail_book_view.dart';
 import 'package:flutter_app/ui/drawer/drawer_view.dart';
 import 'package:flutter_app/ui/search/search_view_model.dart';
@@ -58,6 +59,7 @@ class SearchView extends HookConsumerWidget {
                                 builder: (context) => DetailBookView(
                                   index: index,
                                   docs: books[index],
+                                  route: DetailBookInRoute.search,
                                 ),
                               ),
                             );

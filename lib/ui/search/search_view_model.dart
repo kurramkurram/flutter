@@ -20,7 +20,7 @@ class SeacrhViewModel extends AsyncNotifier<Books> {
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() async {
       final dio = Dio();
-      return await ref.read(bookRepositoryProvider(dio)).fetchBooks(title);
+      return await ref.read(bookRepositoryProvider).fetchBooks(title, dio);
     });
   }
 }
