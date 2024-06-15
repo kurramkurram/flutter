@@ -136,7 +136,9 @@ class DetailBookView extends HookConsumerWidget {
             children: [
               BaseButton(
                 radius: 16,
-                backgroundColor: Colors.blue.shade100,
+                backgroundColor: docs.state.isRead
+                    ? Colors.green.shade100
+                    : Colors.blue.shade100,
                 text: Text(l10n.detail_book_read),
                 paddingVertical: 2,
                 onPressed: () {
@@ -146,7 +148,9 @@ class DetailBookView extends HookConsumerWidget {
               ),
               BaseButton(
                 radius: 16,
-                backgroundColor: Colors.blue.shade100,
+                backgroundColor: docs.state.isWantRead
+                    ? Colors.green.shade100
+                    : Colors.blue.shade100,
                 text: Text(l10n.detail_book_want_read),
                 paddingVertical: 2,
                 onPressed: () {
