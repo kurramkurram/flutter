@@ -25,6 +25,24 @@ extension ReadStateExtension on ReadState {
     }
   }
 
+  bool get isRead {
+    switch (this) {
+      case ReadState.read:
+        return true;
+      default:
+        return false;
+    }
+  }
+
+  bool get isWantRead {
+    switch (this) {
+      case ReadState.wantRead:
+        return true;
+      default:
+        return false;
+    }
+  }
+
   static ReadState getState(int id) {
     for (var state in ReadState.values) {
       if (state.id == id) return state;
